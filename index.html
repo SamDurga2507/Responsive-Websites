@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  *{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+  }
+  :root
+  {
+    font-size: 16px;
+  }
+  body
+  {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height:1.6;
+    padding:1rem;
+
+  }
+
+  .grid-container
+  {
+    display: grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:1rem;
+    margin: 2rem 0;
+    background-color: blueviolet;
+  }
+  .grid-item
+  {
+    background:#f0f0f0;
+    padding:1rem;
+    border-radius:0.5rem;
+  }
+  .responsive-image
+  {
+    width:100%;
+    height:auto;
+    max-width: 400px;
+  }
+  .flex-container
+  {
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    margin: 2rem 0;
+    background-color: aqua;
+  }
+  .flex-item
+  {
+    background: #e0e0e0;
+    padding:1rem;
+    border-radius: 0.5 rem;
+    
+  }
+  .text-container
+  {
+    font-size: 1em;
+    margin:1rem 0;
+    min-height:50vh;
+    max-width: 90vw;
+    padding:1em;
+    background: #f5f5f5;
+    border-radius: 0.5 rem;
+  }
+  .text-container h2{
+    font-size:1.5rem;
+    margin-bottom:1rem;
+  }
+  /* for tablet */
+  @media (min-width:768px)
+  {
+    .flex-container
+    {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .flex-item
+    {
+      flex: 1;
+      min-width:200px;
+
+    }
+    .text-container
+    {
+      font-size: 1.1em;
+    }
+  }
+
+  @media (min-width:1024px)
+  {
+    body {
+      padding:2rem;
+    }
+    .grid-container
+    {
+      grid-template-columns: repeat(3,1fr);
+    }
+    .text-container
+    {
+      font-size: 1.2em;
+      max-width: 70vwP;
+    }
+  }
+</style>
+<body>
+  <h1>Responsive Design Examples</h1>
+
+  <div class="grid-container">
+    <div class="grid-item">Grid Item 1</div>
+    <div class="grid-item">Grid Item 2</div>
+    <div class="grid-item">Grid Item 3</div>
+  </div>
+  
+  <div class="responsive-image">
+    <img src="data:image/jpeg;base64,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" alt="Responsive Image Example">
+  </div>
+
+  <div class="flex-container">
+    <div class="flex-item">Flex Item 1</div>
+    <div class="flex-item">Flex Item 2</div>
+    <div class="flex-item">Flex Item 3</div>
+  </div>
+
+  <div class="text-container">
+    <h2>Relative Units Demo</h2>
+    <p>This text container uses relative units for sizing</p>
+  </div>
+</body>
+</html>
