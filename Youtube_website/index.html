@@ -14,6 +14,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     />
 
+    <!-- scout linking for icons -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/thinline.css"
+    />
+
     <!-- Custom Styling Link -->
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -51,11 +57,99 @@
       </header>
       <main class="main-layout">
         <!-- Sidebar -->
-        <aside class="sidebar">Sidebar</aside>
+        <aside class="sidebar">
+          <div class="link-container">
+            <div class="link-section">
+              <a href="#" class="link-item">
+                <i class="fas fa-house"></i>Home
+              </a>
+              <a href="#" class="link-item">
+                <i class="fa-solid fa-video"></i>Shorts
+              </a>
+              <a href="#" class="link-item">
+                <i class="fa-brands fa-youtube"></i>Subscription
+              </a>
+            </div>
+            <div class="section-separator"></div>
+            <div class="link-section">
+              <h4 class="section-title">You</h4>
+              <a class="link-item">
+                <i class="fa-regular fa-user"> </i>Your Channel
+              </a>
+
+              <a class="link-item">
+                <i class="fa-solid fa-clock-rotate-left"></i>History
+              </a>
+
+              <a class="link-item">
+                <i class="fa-solid fa-clock "></i>Watch later
+              </a>
+            </div>
+            <div class="section-separator">
+              <div class="link-section">
+                <h4 class="section-title">Explore</h4>
+                <a class="link-item">
+                  <i class="fas fa-house-fire"></i>Trending 
+                </a>
+
+                <a class="link-item">
+                  <i class="fa-solid fa-music"> </i>Music
+                </a>
+
+                <a class="link-item">
+                  <i class="fa-solid fa-basketball"> </i>Gaming
+                </a>
+
+                <a class="link-item">
+                  <i class="fa-solid fa-trophy"> </i>Sports
+                </a>
+              </div>
+              <div class="section-separator">
+                <div class="link-section">
+                  <h4 class="section-title">More from Youtube</h4>
+                  <a class="link-item">
+                    <i class="fas fa-plus"> </i>YouTube Plus
+                  </a>
+
+                  <a class="link-item">
+                    <i class="fa-solid fa-headphones-alt"> </i>YouTube Music
+                  </a>
+
+                  <a class="link-item">
+                    <i class="fa-solid fa-child"></i>YouTube Kids 
+                  </a>
+                </div>
+                <div class="section-separator">
+                  <div class="link-section">
+                   
+                    <a class="link-item">
+                      <i class="fas fa-gear">
+                        </i>Settings
+                      </a>
+  
+                      <a class="link-item">
+                        <i class="fa-solid  fa-file">
+                          </i>Report
+                        </a>
+      
+                      <a class="link-item">
+                        <i class="fa-solid fa-question-circle">
+                          </i>Help
+                        </a>
+
+                        <a class="link-item">
+                          <i class="fa-solid fa-exclamation-triangle">
+                            </i>Feedback
+                          </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
         <div class="content-wrapper">
           <!-- category list -->
           <div class="category-list">
-            <button class="category-button">All</button>
+            <button class="category-button active">All</button>
             <button class="category-button">Website</button>
 
             <button class="category-button">Music</button>
@@ -429,5 +523,6 @@
         </div>
       </main>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
