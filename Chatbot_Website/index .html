@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot Copy</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/icon.png" sizes="32x32" type="image/png" />
+
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="content-wrapper">
+      <div class="chatbot-container">
+        <header class="chatbot-header">
+          <div class="header-left">
+            <button class="logo-button">
+              <img src="images/icon.png" alt="logo image" class="logo-image" />
+            </button>
+            <h3 class="logo-text">Chatbot</h3>
+          </div>
+          <button class="drop-down-menu">
+            <i class="fa-solid fa-caret-down"></i>
+          </button>
+        </header>
+        <main class="message-container">
+          <div class="message chatbot-message">
+            <img
+              src="images/icon.png"
+              alt="chatbot icon"
+              class="chatbot-icon"
+            />
+            <div class="message-bubble chatbot-bubble">Hello ✋</div>
+          </div>
+
+          <div class="message user-message">
+            <div class="message-bubble user-bubble">i need your help!</div>
+          </div>
+        </main>
+        <!-- footer -->
+        <div class="typing-section">
+          <input
+            type="text"
+            class="input-text"
+            placeholder="Typing your message"
+          />
+          <button class="link">
+            <i class="fa-solid fa-link"></i>
+            <input type="file" class="upload-file" style="visibility: hidden" />
+          </button>
+          <button class="send-button">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+      <div class="trigger-container">
+        <button class="trigger-button">
+          <img
+            src="images/Chatbot_container.png"
+            alt="trigger icon"
+            class="trigger-icon-image"
+          />
+        </button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
