@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Miniver"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <title>Login Form</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "sans-serif";
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url("images/background_img.png") no-repeat;
+        min-height: 100vh;
+        background-size: cover;
+        background-position: center;
+      }
+      :root {
+        --white-color: #fff;
+      }
+
+      li {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+        cursor: pointer;
+      }
+      button {
+        background: none;
+      }
+      header .navbar {
+        width: 100%;
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 5rem;
+
+        z-index: 99;
+      }
+      .navbar .menu-bar {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+      .logo-text {
+        font-size: 2rem;
+        color: var(--white-color);
+        cursor: pointer;
+      }
+
+      .nav-link {
+        font-size: 1.4rem;
+        color: var(--white-color);
+        font-weight: 530;
+        position: relative;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: -6px;
+        background: var(--white-color);
+        height: 3px;
+        border-radius: 6px;
+        transform: scaleX(0);
+        transition: 0.5s ease;
+        transform-origin: right;
+      }
+      .nav-link:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+      .navbar .login-button {
+        width: 130px;
+        height: 50px;
+        padding: 0.6rem 0.8rem;
+        border: 2px solid var(--white-color);
+        border-radius: 8px;
+        font-size: 1.2rem;
+        color: var(--white-color);
+        background: transparent;
+        margin-left: 40px;
+      }
+      .login-button:hover {
+        background: var(--white-color);
+        color: #000;
+      }
+
+      /*login-box styling*/
+      .container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 4rem;
+        align-items: center;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        background: transparent;
+        backdrop-filter: blur(20px);
+        border-radius: 8px;
+        box-shadow: 20px 10px 25px rgba(0, 0, 0, 0.1);
+        max-height: 440px;
+        max-width: 440px;
+      }
+      .login-form {
+        width: 100%;
+        height: 100%;
+      }
+      .container h2 {
+        font-size: 2rem;
+        color: #162938;
+      }
+      .input-box {
+        padding: 5px;
+        position: relative;
+        width: 100%;
+        height: 50px;
+        border-bottom: 2px solid #162938;
+        margin: 30px 0;
+      }
+      .input-box input {
+        padding: 5px;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        color: #162938;
+        font-weight: 600;
+      }
+      .input-box label {
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        transform: translateY(-50%);
+        font-size: 1em;
+        color: #162938;
+        font-weight: 500;
+
+        pointer-events: none;
+      }
+      .input-box i {
+        position: absolute;
+        right: 8px;
+        font-size: 1.4rem;
+        color: #162938;
+        line-height: 57px;
+      }
+
+      .input-box input:focus ~ label,
+      .input-box input:valid ~ label {
+        top: -5px;
+      }
+
+      .remember-forget {
+        display: flex;
+        align-items: center;
+        margin: -15px 0 15px;
+        color: #162938;
+        font-size: 0.9rem;
+        font-weight: 600;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .forgot-link {
+        text-decoration: none;
+        color: #162938;
+      }
+      .forgot-link:hover,
+      .register-link:hover {
+        text-decoration: underline;
+      }
+      .remember-forget label input {
+        accent-color: #162938;
+        margin-right: 3px;
+      }
+      .login-form .submit-button {
+        width: 100%;
+        padding: 0.6rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 12px;
+        background-color: #162938;
+        border: none;
+        outline: none;
+        border-radius: 6px;
+        color: #fff;
+        cursor: pointer;
+      }
+      .register {
+        font-size: 0.9rem;
+        color: #000;
+        font-weight: 700;
+        display: flex;
+        gap: 0.3em;
+      }
+      .register-link {
+        color: #162938;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <a href="#" class="logo">
+          <h3 class="logo-text">Logo</h3>
+        </a>
+
+        <ul class="menu-bar">
+          <li class="nav-item"><a href="" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="" class="nav-link">Service</a></li>
+          <li class="nav-item"><a href="" class="nav-link">Contact</a></li>
+          <li class="nav-item">
+            <button class="login-button">Login</button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <h2>Login</h2>
+        <form action="#" class="login-form">
+          <!-- Email -->
+          <div class="input-box">
+            <span class="icon"><i class="fas fa-envelope"></i></span>
+            <input type="email" required />
+            <label for="email">Email</label>
+          </div>
+
+          <!-- Password -->
+          <div class="input-box">
+            <span class="icon"><i class="fas fa-lock"></i> </span>
+            <input type="password" required />
+            <label for="password">Password</label>
+          </div>
+
+          <!-- Remember me -->
+          <div class="remember-forget">
+            <label>
+              <input type="checkbox" />
+              Remember me
+            </label>
+            <a href="#" class="forgot-link">ForgotPassword?</a>
+          </div>
+
+          <!-- submit button -->
+          <button type="submit" class="submit-button">Login</button>
+
+          <!-- Registration -->
+          <p class="register">
+            Don't have an account?<a href="#" class="register-link">Register</a>
+          </p>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
