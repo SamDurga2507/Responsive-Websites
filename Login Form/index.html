@@ -105,9 +105,15 @@
         background: var(--white-color);
         color: #000;
       }
+      .container {
+        position: relative;
+        width: 400px;
+        height: 500px;
+        perspective: 1000px;
+      }
 
       /*login-box styling*/
-      .container {
+      .form-box {
         display: flex;
         flex-direction: column;
         gap: 2rem;
@@ -118,8 +124,16 @@
         backdrop-filter: blur(20px);
         border-radius: 8px;
         box-shadow: 20px 10px 25px rgba(0, 0, 0, 0.1);
-        max-height: 440px;
-        max-width: 440px;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        position: absolute;
+        transition: transform
+        0.4s ease;
+        transform-style: preserve-3d;
+
+        /*flippling logic*/
+        backface-visibility: hidden;
       }
       .login-form {
         width: 100%;
@@ -190,11 +204,12 @@
       .register-link:hover {
         text-decoration: underline;
       }
-      .remember-forget label input {
+      .remember-forget label input ,
+      .remember-forget-register label input{
         accent-color: #162938;
         margin-right: 3px;
       }
-      .login-form .submit-button {
+      .submit-button {
         width: 100%;
         padding: 0.6rem;
         font-size: 0.9rem;
@@ -214,9 +229,59 @@
         display: flex;
         gap: 0.3em;
       }
-      .register-link {
+      .register-link,
+      .login-link {
         color: #162938;
+        
       }
+      .login-link:hover
+      {
+        text-decoration: underline;
+      }
+
+      .close-icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: #162938;
+        height: 45px;
+        width: 45px;
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 500;
+        color: #fff;
+        border-bottom-left-radius: 20px;
+        z-index: 1;
+        cursor: pointer;
+      }
+      .register-form {
+        transform: rotateY(180deg);
+      }
+
+      .container.active .login-form {
+        transform: rotateY(-180deg);
+      }
+      .container.active .register-form {
+        transform: rotateY(0);
+      }
+
+      .remember-forget-register
+      {
+        flex-direction: column;
+        align-items: flex-start;
+        color: #162938;
+        font-size: 0.9rem;
+        font-weight: 600;
+        
+      }
+      /* Handle register checkbox */
+.remember-forget input[type="checkbox"] {
+  margin-right: 10px;
+  accent-color: #162916;
+}
+      
     </style>
   </head>
   <body>
@@ -239,40 +304,99 @@
     </header>
     <main>
       <div class="container">
-        <h2>Login</h2>
-        <form action="#" class="login-form">
-          <!-- Email -->
-          <div class="input-box">
-            <span class="icon"><i class="fas fa-envelope"></i></span>
-            <input type="email" required />
-            <label for="email">Email</label>
+        <div class="close-icon">
+          <i class="fas fa-close"></i>
+        </div>
+        <div class="form-box login-form">
+          <h2>Login</h2>
+          <form action="#">
+            <!-- Email -->
+            <div class="input-box">
+              <span class="icon"><i class="fas fa-envelope"></i></span>
+              <input type="email" required />
+              <label for="email">Email</label>
+            </div>
+
+            <!-- Password -->
+            <div class="input-box">
+              <span class="icon"><i class="fas fa-lock"></i> </span>
+              <input type="password" required />
+              <label for="password">Password</label>
+            </div>
+
+            <!-- Remember me -->
+            <div class="remember-forget">
+              <label>
+                <input type="checkbox" />
+                Remember me
+              </label>
+              <a href="#" class="forgot-link">ForgotPassword?</a>
+            </div>
+
+            <!-- submit button -->
+            <button type="submit" class="submit-button">Login</button>
+
+            <!-- Registration -->
+            <p class="register">
+              Don't have an account?<a
+                href="#"
+                class="register-link"
+                onclick="toggleForm()"
+                >Register</a
+              >
+            </p>
+          </form>
+        </div>
+
+        <!-- Register -->
+        <div class="form-box register-form">
+          <div class="close-icon">
+            <i class="fas fa-close"></i>
           </div>
+          <h2>Regsiter</h2>
+          <form action="#">
+            <!-- Email -->
+            <div class="input-box">
+              <span class="icon"><i class="fas fa-user"></i></span>
+              <input type="username" required />
+              <label for="email">Username</label>
+            </div>
 
-          <!-- Password -->
-          <div class="input-box">
-            <span class="icon"><i class="fas fa-lock"></i> </span>
-            <input type="password" required />
-            <label for="password">Password</label>
-          </div>
+            <!-- Password -->
+            <div class="input-box">
+              <span class="icon"><i class="fas fa-lock"></i> </span>
+              <input type="password" required />
+              <label for="password">Password</label>
+            </div>
 
-          <!-- Remember me -->
-          <div class="remember-forget">
-            <label>
-              <input type="checkbox" />
-              Remember me
-            </label>
-            <a href="#" class="forgot-link">ForgotPassword?</a>
-          </div>
+            <!-- Remember me -->
+            <div class="remember-forget-register">
+              <label>
+                <input type="checkbox" />
+                Do you accept all the terms and conditions
+              </label>
+             
 
-          <!-- submit button -->
-          <button type="submit" class="submit-button">Login</button>
+            <!-- submit button -->
+            <button type="submit" class="submit-button">Register</button>
 
-          <!-- Registration -->
-          <p class="register">
-            Don't have an account?<a href="#" class="register-link">Register</a>
-          </p>
-        </form>
+            <!-- Registration -->
+            <p class="register">
+              Already have an account?<a
+                href="#"
+                class="login-link"
+                onclick="toggleForm()"
+                >Login
+              </a>
+            </p>
+          </form>
+        </div>
       </div>
     </main>
   </body>
+  <script>
+    function toggleForm() {
+      document.querySelector(".container").classList.toggle("active");
+    }
+  </script>
 </html>
